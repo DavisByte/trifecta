@@ -1,0 +1,296 @@
+body {
+  background: #181818;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main-content {
+  width: 55%;
+  margin: auto;
+  text-align: center;
+}
+
+.navigation {
+  display: flex;
+  margin: auto;
+  border-bottom: 1px solid #999;
+  height: 75px;
+  width: 80%;
+  align-items: center;
+  justify-content: center;
+  gap: 20%;
+}
+
+.main-content .navigation .heading {
+  display: flex;
+  gap: 15%;
+}
+
+a:link, a:visited {
+  color: #999;
+  font-size: 1.2rem;
+  text-decoration: none;
+}
+
+a:hover, a:active {
+  color: #fff;
+  background-color: transparent;
+}
+
+/* General Card Styling */
+.card {
+  background-color: #434343;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 5% auto;
+  padding: 20px;
+  max-width: 100%;
+  height: 100%;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Distribute space between elements */
+}
+
+.card h2 {
+  font-size: 1.8rem;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.card label {
+  display: block;
+  font-size: 1.1rem;
+  margin-top: 15px;
+}
+
+.card input, .card select {
+  width: 80%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+.card button {
+  width: 37%;
+  padding: 10px;
+  margin-top: 15px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.card button:hover {
+  background-color: #45a049;
+}
+
+#bmi-result, #calorie-result, #meal-result, #time-result {
+  margin-top: 15px;
+  font-size: 1.1rem;
+  text-align: center;
+  color: #f8b363;
+}
+
+.calculator-selector {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 20px;
+}
+
+.calculator-selector button {
+    background-color: #434343;
+    color: white;
+    padding: 10px 20px;
+    border: 1px solid #999;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    top: 0px;
+}
+
+.calculator-selector button:hover {
+    background-color: #999;
+}
+
+.calculator-content {
+    display: none; /* Hide all calculator content initially */
+}
+
+.calculator-content.show {
+    display: block; /* Show only when 'show' class is added */
+}
+
+
+#bmiText, #maintenanceText {
+    margin-top: auto; /* Pushes the text towards the bottom */
+    text-align: center;
+    margin: 20px auto;
+    font-family: 'Crimson Pro', sans-serif;
+    font-size: 1.1rem;
+    width: 85%;
+    text-align: left;
+}
+
+#timeText, #mealText{
+    margin-top: auto; /* Pushes the text towards the bottom */
+    text-align: center;
+    margin: 20px auto;
+    font-family: 'Crimson Pro', sans-serif;
+    font-size: 1.1rem;
+    width: 85%;
+}
+
+.navigation .trifecta-link {
+  color: #d17b69; /* Set the color of 'Trifecta' to white */
+  font-weight: 600;
+  font-size: 1.3rem;
+}
+
+#regiment-result {
+  margin: 15px auto;
+  font-size: 1.1rem;
+  text-align: left;
+  color: #fff;
+}
+.exercise-day {
+    border: 1px solid #999;
+    border-radius: 12px;
+    padding: 15px;
+    margin: 10px 0;
+    background-color: #434343;
+    color: #fff;
+    text-align: left;
+    font-size: 1rem;
+    width: 80%;
+    margin: 1.5% auto;
+}
+
+.exercise-day h3 {
+    margin: 0 0 10px;
+    font-size: 1.2rem;
+    color: #f8b363;
+}
+
+.exercise-day ul {
+    padding-left: 20px;
+}
+
+.exercise-day li {
+    margin: 5px 0;
+}
+.meal-plan {
+    border: 1px solid #999;
+    border-radius: 12px;
+    padding: 15px;
+    margin: 10px 0;
+    background-color: #434343;
+    color: #fff;
+    text-align: left;
+    font-size: 1rem;
+    width: 80%;
+    margin: 1.5% auto;
+}
+
+.meal-plan h3 {
+    margin: 0 0 10px;
+    font-size: 1.2rem;
+    color: #f8b363;
+}
+
+.meal-plan ul {
+    padding-left: 20px;
+}
+
+.meal-plan li {
+    margin: 5px 0;
+}
+
+/* Animation for Trifecta Card Text */
+.animated-text {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Show the Trifecta card when clicked */
+#trifecta-card {
+    display: none; /* Initially hidden */
+    padding: 20px;
+    background-color:#464646;
+    border-radius: 10px;
+    width: 80%;
+    margin: auto;
+    margin-bottom: 30px;
+    margin-top: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#trifecta-card h2 {
+    color: #f9f871;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+#trifecta-card .animated-text {
+    font-size: 1.2rem;
+    color: #fff;
+    line-height: 1.6;
+}
+
+/* For screens up to 768px (tablets and small screens) */
+@media (max-width: 768px) {
+  .navigation {
+    display: flex;
+    margin: auto;
+    border-bottom: 1px solid #999;
+    height: 75px;
+    width: 80%;
+    align-items: center;
+    justify-content: center;
+    gap: 10%;
+  }
+  
+  .main-content .navigation .heading {
+    display: flex;
+    gap: 5%;
+  }
+  .card {
+    width: 90%;
+    margin: auto; /* Center horizontally */
+    padding: 15px;
+  }
+
+  .main-content {
+    width: 100%;
+    text-align: center; /* Center text-based content */
+  }
+
+  .workout-plan {
+    width: 90%; /* Make the workout plan responsive */
+    margin: 20px auto; /* Center it with a top margin */
+    text-align: center; /* Ensure content is centered inside */
+  }
+
+  .card button {
+    width: 80%;
+    margin: auto;
+  }
+}
