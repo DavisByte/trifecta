@@ -130,7 +130,36 @@ function generateMealPlan() {
 
     // Define meal plans based on calorie intake ranges
     const mealPlans = {
-        1000: {
+        "0-1000": {
+            Breakfast: [
+                "Day 1: Small apple and a boiled egg",
+                "Day 2: Light oatmeal with water",
+                "Day 3: Half a banana and Greek yogurt",
+                "Day 4: A slice of whole-grain toast",
+                "Day 5: A boiled egg with spinach",
+                "Day 6: Smoothie with almond milk",
+                "Day 7: Low-fat granola bar"
+            ],
+            Lunch: [
+                "Day 1: Small portion of chicken soup",
+                "Day 2: Light salad with olive oil",
+                "Day 3: Grilled zucchini with rice",
+                "Day 4: Veggie wrap with hummus",
+                "Day 5: Steamed veggies with tofu",
+                "Day 6: Broth-based soup",
+                "Day 7: Small chicken salad"
+            ],
+            Dinner: [
+                "Day 1: Grilled fish with green beans",
+                "Day 2: Stir-fried tofu and broccoli",
+                "Day 3: Small baked sweet potato",
+                "Day 4: Grilled chicken with a side salad",
+                "Day 5: Veggie stir-fry",
+                "Day 6: Roasted turkey slices",
+                "Day 7: Mixed vegetable soup"
+            ],
+        },
+        "1000-1500": {
             Breakfast: [
                 "Day 1: Oatmeal with berries",
                 "Day 2: Scrambled eggs with spinach",
@@ -159,7 +188,7 @@ function generateMealPlan() {
                 "Day 7: Grilled fish with sautéed spinach"
             ],
         },
-        1500: {
+        "1500-2000": {
             Breakfast: [
                 "Day 1: Smoothie with banana, spinach, and protein powder",
                 "Day 2: Oatmeal with almonds and berries",
@@ -188,7 +217,7 @@ function generateMealPlan() {
                 "Day 7: Grilled chicken with roasted sweet potatoes"
             ],
         },
-        2000: {
+        "2000-2500": {
             Breakfast: [
                 "Day 1: Whole-grain pancakes with maple syrup",
                 "Day 2: Greek yogurt with granola and berries",
@@ -217,7 +246,7 @@ function generateMealPlan() {
                 "Day 7: Grilled chicken with a quinoa salad"
             ],
         },
-        2500: {
+        "2500-3000": {
             Breakfast: [
                 "Day 1: Whole-grain waffles with mixed berries",
                 "Day 2: Oatmeal with honey, almonds, and strawberries",
@@ -246,41 +275,21 @@ function generateMealPlan() {
                 "Day 7: Grilled turkey with a spinach and quinoa salad"
             ],
         },
-        3000: {
-            Breakfast: [
-                "Day 1: Scrambled eggs with spinach, mushrooms, and avocado",
-                "Day 2: Smoothie with banana, oats, and protein powder",
-                "Day 3: Whole grain pancakes with peanut butter and maple syrup",
-                "Day 4: Greek yogurt with chia seeds and granola",
-                "Day 5: Breakfast burrito with scrambled eggs and veggies",
-                "Day 6: Whole wheat toast with scrambled eggs and tomatoes",
-                "Day 7: Oatmeal with almond butter and banana"
-            ],
-            Lunch: [
-                "Day 1: Grilled chicken with quinoa, roasted veggies, and avocado",
-                "Day 2: Quinoa salad with chickpeas, cucumber, and feta",
-                "Day 3: Grilled shrimp with roasted sweet potatoes",
-                "Day 4: Veggie wrap with hummus and mixed greens",
-                "Day 5: Grilled chicken Caesar salad with croutons",
-                "Day 6: Grilled salmon with spinach and roasted Brussels sprouts",
-                "Day 7: Chicken and vegetable stir-fry with brown rice"
-            ],
-            Dinner: [
-                "Day 1: Baked cod with roasted Brussels sprouts and sweet potatoes",
-                "Day 2: Grilled chicken with quinoa and roasted vegetables",
-                "Day 3: Beef stir-fry with broccoli and mushrooms",
-                "Day 4: Grilled shrimp with mixed greens and avocado",
-                "Day 5: Baked salmon with a side of sautéed spinach",
-                "Day 6: Grilled pork chops with steamed broccoli",
-                "Day 7: Chicken stir-fry with cauliflower rice"
-            ],
-        },
     };
 
-    // Determine which meal plan to use based on maintenance calories
-    const selectedMealPlan = mealPlans[maintenanceCalories];
+    // Determine which range the maintenanceCalories falls into
+    let selectedMealPlan = null;
+    for (const range in mealPlans) {
+        const [min, max] = range.split('-').map(Number);
+        if (maintenanceCalories > min && maintenanceCalories <= max) {
+            selectedMealPlan = mealPlans[range];
+            break;
+        }
+    }
+
     if (!selectedMealPlan) {
-        document.getElementById('meal-result').innerText = "No meal plan available for this calorie range.";
+        document.getElementById('meal-result').innerText =
+            "No meal plan available for this calorie range.";
         return;
     }
 
@@ -298,6 +307,7 @@ function generateMealPlan() {
     // Display the meal plan
     document.getElementById('meal-result').innerHTML = mealPlanHtml;
 }
+
 
 
 function generateRegiment() {
