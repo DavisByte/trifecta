@@ -283,4 +283,8 @@ a:hover, a:active {
         display: block; /* Ensure the card is visible */
         margin: 0 auto; /* Center the card */
     }
+
+    .card button {
+      margin-top: 0px;
+    }
 }
