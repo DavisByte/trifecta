@@ -29,6 +29,7 @@ hr{
   width: 100%; /* Matches card width */
   padding: 10px 0;
   margin-bottom: 10px;
+  border-bottom: 1px solid #999;
   align-items: center;
   justify-content: center;
   gap: 15%;
