@@ -30,8 +30,7 @@ hr{
   margin: auto;
   height: 20px;
   width: 100%; /* Matches card width */
-  padding: 10px 0;
-  margin-bottom: 10px;
+  padding: 20px 0;
   align-items: center;
   justify-content: center;
   gap: 15%;
@@ -94,7 +93,7 @@ a:hover, a:active {
 .card button {
   width: 37%;
   padding: 10px;
-  margin-top: 15px;
+  margin-top: 0px;
   background-color: #4CAF50;
   color: white;
   border: none;
